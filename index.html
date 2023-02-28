@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Youtube Clone - Jose</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    
+    <!-- nav bar -->
+    <nav class="navbar">
+        <div class="toggle-btn" onclick="show_hide_nav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <img src="https://www.edigitalagency.com.au/wp-content/uploads/Youtube-logo-png.png" class="logo" alt="">
+        <div class="search-box">
+            <input type="text" class="search-bar" placeholder="search" onkeypress="enterKeyPress(event)">
+            <button class="search-btn"><img src="https://www.freeiconspng.com/thumbs/search-icon-png/search-icon-png-2.png" alt=""></button>
+        </div>
+        <img src="data:image/png;base64,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" class="mic-icon" alt="">
+        <div class="user-options">
+            <span class="video-create-span">CREATE</span>
+            <img src="https://static.thenounproject.com/png/3282528-200.png" class="icon" onclick="create_video()" alt="">
+            <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-ios7-bell-512.png" class="icon" alt="">
+            <div class="user-dp">
+                <img src="https://cdn-icons-png.flaticon.com/512/21/21104.png" alt="">
+            </div>
+        </div>
+    </nav>
+
+    <!-- side bar -->
+    <div class="side-bar">
+        <a href="#" class="links active"> <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt=""> Home </a>
+        <a href="https://www.youtube.com/shorts" class="links"> <img src="data:image/png;base64,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" alt=""> Shorts </a>
+        <a href="https://www.youtube.com/feed/subscriptions" class="links"> <img src="https://cdn-icons-png.flaticon.com/512/565/565285.png" alt=""> Subscription </a>
+        <hr class="seperator">
+        <a href="https://www.youtube.com/premium" class="links"> <img src="https://e7.pngegg.com/pngimages/503/589/png-clipart-youtube-icon-youtube-live-computer-icons-music-youtube-logo-angle-rectangle-thumbnail.png" alt=""> YouTube Premium </a>
+        <a href="https://studio.youtube.com" class="links"> <img src="https://cdn.fileplanet.com/anic/iss-thumbs/youtube-creator-studio.png" alt=""> Creator Studio </a>
+        <a href="https://music.youtube.com" class="links"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Youtube_Music_icon.svg/240px-Youtube_Music_icon.svg.png" alt=""> YouTube Music </a>
+        <a href="https://www.youtubekids.com" class="links"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fb/YouTube_Kids_LogoVector.svg/1267px-YouTube_Kids_LogoVector.svg.png" alt=""> YouTube Kids </a>
+        <a href="https://tv.youtube.com/welcome" class="links"> <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQIAAADDCAMAAABeUu/HAAAAe1BMVEX/AAD/////uLj/s7P/39//y8v/0ND/5OT/+/v/9vb/6+v/9PT/Pj7/w8P/mJj/5eX/kZH/oqL/bGz/S0v/ExP/Rkb/Wlr/2dn/IyP/CQn/p6f/1NT/hYX/NDT/6ur/cnL/LS3/fn7/VVX/Jib/YGD/WVn/nJz/trb/ZmZdiVhBAAADUklEQVR4nO3d21biQBCF4dogOXFwVASVUfEwh/d/woFBsJEQkkZSrKr93Xhb+S/S0KsbBRtFMuw60Zlln88tH3/7o3tx5XaUbSf4oT2RhqsgQfGoPY2OQX+d4GmsPYuWcbFKkLstIPKW/U8w0Z5D0/sywVB7Cl29RYK58gzKBpCp9gzaUhlpj6BtJK5fhkvvcqc9grY7cfbVYJf7AERERERERERERERERERERHQOHm61J1A3Q1d7BG0JkP3UHkJXsjztffmqPYamZHXqf+j4WFOyvgDj95DnJgH6f7VnUfKZAEh8Xn8JEwAP2uNo2E6A/EV7oPZ9SQBc3GiP1LadBEDH2W2okgTe7kWWJsDTu/ZcLSpPAPT83ITYlwC40h6tLfsTIH/WHq4dFQmA6UB7vDZUJoCL/ZQDCTzspxxKAKS/tGc8scMJgOGb9pQnVScB8Ft7zFOqlwDFtfagp1MzATCba496KrUT2N1PaZAAmc39lCYJjO6nNEtgcj+laQKD+ynNE5jbT4lIAPTm2mN/p6gEthbIyATo29lPiU1gaD8lPgHwR3v473FMAsDEfspxCWDhC+RRCWzsLB6RwMr7MDpBYWZVjE1gaCstLoGpDdWYBMaOKUYkMPFhINA4gY2FMNQwwczgubxGCfoWPgzuaJLA0EIYqp9gaG/jdKVugtTWQhiqlyC3thCGaiWwtFO4q0YC6wfUDyYozF9TOJTAwWWV6gQurixVJUh9XOPcn8DN7Yy9CWwvhKE9CawvhKHSBPYXwlBZAnOHKKrtJjB4lKba1wQmD1RV207gZiEMbSXwsxCGggSJnxtZWzYJCmPnyOr7SJA5WwhDic+FMLRMMPW3EIYSS8fn4iQ+F8KQ55cAEREREREREREREREREREREdnh4XpUpXux9JshUebi6npImWtx838a9rmSVHsEbZcC32dj5QaCmfYQumaLBHB9QvgZywSYa8+h5xGrBLnT+zIid/lHAmQT7Vl0TDKsE/i8NDLurp5dNldI7f6mTqnX7vrJNwkWr4SLYceJXpp/PneQwCsmYAImABMgKsHFWWsjwZlvMKRMwARMwATCBMIEwgTCBMIEwgTCBMIEwgTCBMIEwgTCBMIE0k6CrHfWssYP9A8ckDLKdi3UuQAAAABJRU5ErkJggg==" alt=""> YouTube TV </a>
+        <hr class="seperator">
+        <a href="https://www.youtube.com/feed/trending?bp=6gQJRkVleHBsb3Jl" class="links"> <img src="https://icon-library.com/images/trending-icon/trending-icon-2.jpg" alt=""> Trending </a>
+        <a href="https://www.youtube.com/channel/UCkYQyvc_i9hXEo4xic9Hh2g" class="links"> <img src="https://cdn-icons-png.flaticon.com/512/263/263142.png" alt=""> Shopping </a>
+        <a href="https://www.youtube.com/channel/UC-9-kyTW8ZkZNDHQJ6FgpwQ" class="links"> <img src="https://toppng.com/uploads/preview/music-icons-musical-note-icon-11563116064s8jezbq5wm.png" alt=""> Music </a>
+        <a href="https://www.youtube.com/feed/storefront?bp=ogUCKAI%3D" class="links"> <img src="https://img.lovepik.com/free-png/20210926/lovepik-movie-icon-png-image_401451044_wh1200.png" alt=""> Movies </a>
+        <a href="https://www.youtube.com/channel/UC4R8DWoMoI7CAwX8_LjQHig" class="links"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH8MZCebp5SnepFCW8cT24A4-VqgdEYeRUdx_ahBeBQJOCnLpwwKwXEDt2qUrYjq4p26U&usqp=CAU" alt=""> Live </a>
+        <a href="https://www.youtube.com/gaming" class="links"> <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Video_game_controller_icon_designed_by_Maico_Amorim.svg/2498px-Video_game_controller_icon_designed_by_Maico_Amorim.svg.png" alt=""> Gaming </a>
+        <a href="https://www.youtube.com/channel/UCEgdi0XIXXZ-qJOFPf4JSKw" class="links"> <img src="https://icons-for-free.com/iconfiles/png/512/cup+podium+prize+sport+win+winner+icon-1320165901243634768.png" alt=""> Sports </a>
+        <hr class="seperator">
+        <a href="https://www.youtube.com/feed/library" class="links"> <img src="https://cdn.icon-icons.com/icons2/1863/PNG/512/video-library_118500.png" alt=""> Library </a>
+        <a href="https://www.youtube.com/feed/history" class="links"> <img src="https://cdn1.iconfinder.com/data/icons/material-core/21/history-512.png" alt=""> History </a>
+        <a href="#" class="links"> <img src="https://www.pngmart.com/files/1/Video-Icon-PNG-Clipart.png" alt=""> Your Videos </a>
+        <a href="#" class="links"> <img src="https://image.shutterstock.com/image-vector/icon-watch-later-260nw-710534860.jpg" alt=""> Watch Later </a>
+        <a href="#" class="links"> <img src="https://icons.veryicon.com/png/o/miscellaneous/yuanql/icon-like.png" alt=""> Liked Videos </a>
+        <hr class="seperator">
+        <a href="https://www.youtube.com/account" class="links"> <img src="https://cdn-icons-png.flaticon.com/512/126/126472.png" alt=""> Settings </a>
+        <a href="https://www.youtube.com/reporthistory" class="links"> <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQt-a-5XGzVroyrOrToXCZJHL3gmxcaD-lPVQ&usqp=CAU" alt=""> Report history </a>
+        
+    </div>
+
+    <!-- filters -->
+    <div class="filters">
+        <button class="filter-options active">All</button>
+        <button class="filter-options">News</button>
+        <button class="filter-options">Mixes</button>
+        <button class="filter-options">Music</button>
+        <button class="filter-options">Gaming</button>
+        <button class="filter-options">Gadgets</button>
+        <button class="filter-options">Entertainment</button>
+        <button class="filter-options">Html</button>
+        <button class="filter-options">JavaScript</button>
+        <button class="filter-options">Artificial Intelligence</button>
+        <button class="filter-options">Live</button>
+        <button class="filter-options">Background Music</button>
+        <button class="filter-options">Trending</button>
+        <button class="filter-options">Recently uploaded</button>
+        <button class="filter-options">Watched</button>
+    </div>
+
+    <!-- container for videos -->
+    <div class="video-container">
+        <!-- <div class="video">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc89IXtPEHL1Y2Uuk-GrdwU5pAMKyr_1iaC5ESCS1VVJwtOm4KssY1aErt8PuDiIG5_IY&usqp=CAU" class="thumbnail" alt="" >
+            <div class="content">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSc89IXtPEHL1Y2Uuk-GrdwU5pAMKyr_1iaC5ESCS1VVJwtOm4KssY1aErt8PuDiIG5_IY&usqp=CAU" class="channel-icon" alt="">
+                <div class="info">
+                    <h4 class="title">Youtube Clone Jose | Html Css JavaScript</h4>
+                    <p class="channel-name">Jose Coding</p>
+                </div>
+            </div>
+        </div> -->
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
